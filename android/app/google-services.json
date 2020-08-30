@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "149791896964",
+    "firebase_url": "https://gobarber-41a35.firebaseio.com",
+    "project_id": "gobarber-41a35",
+    "storage_bucket": "gobarber-41a35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149791896964:android:ab8ba16159a82e372459d1",
+        "android_client_info": {
+          "package_name": "com.example.flutter_gobarber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149791896964-c2l8lvlepscqmvoj73v21757ru2598iv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABH4dnE9B7ZuOiCvXDn4V6wkpTUVAFZv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149791896964-c2l8lvlepscqmvoj73v21757ru2598iv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
