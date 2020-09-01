@@ -24,15 +24,15 @@ class HomeAppBar extends StatelessWidget {
                 FutureBuilder(
                     future: _authController.userFirstName,
                     builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return Text(
+                          snapshot.data,
+                          style: TextStyle(
+                              fontSize: 20, color: CustomColors.primary),
+                        );
                       }
 
-                      return Text(
-                        snapshot.data,
-                        style: TextStyle(
-                            fontSize: 20, color: CustomColors.primary),
-                      );
+                      return CircularProgressIndicator();
                     }),
               ],
             ),
