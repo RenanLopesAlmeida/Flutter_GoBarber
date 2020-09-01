@@ -21,10 +21,19 @@ class HomeAppBar extends StatelessWidget {
                   'Welcome,',
                   style: TextStyle(fontSize: 20, color: CustomColors.grey),
                 ),
-                Text(
-                  'Renan',
-                  style: TextStyle(fontSize: 20, color: CustomColors.primary),
-                ),
+                FutureBuilder(
+                    future: _authController.userFirstName,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator();
+                      }
+
+                      return Text(
+                        snapshot.data,
+                        style: TextStyle(
+                            fontSize: 20, color: CustomColors.primary),
+                      );
+                    }),
               ],
             ),
           ),

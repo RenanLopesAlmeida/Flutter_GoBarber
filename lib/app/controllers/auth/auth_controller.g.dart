@@ -44,8 +44,9 @@ mixin _$AuthController on _AuthControllerBase, Store {
   final _$registerAsyncAction = AsyncAction('_AuthControllerBase.register');
 
   @override
-  Future<void> register(String email, String password) {
-    return _$registerAsyncAction.run(() => super.register(email, password));
+  Future<void> register(String name, String email, String password) {
+    return _$registerAsyncAction
+        .run(() => super.register(name, email, password));
   }
 
   final _$loginAsyncAction = AsyncAction('_AuthControllerBase.login');

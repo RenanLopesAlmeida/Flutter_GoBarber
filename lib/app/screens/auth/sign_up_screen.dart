@@ -41,6 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     try {
       _authController.register(
+        _authData['name'],
         _authData['email'],
         _authData['password'],
       );

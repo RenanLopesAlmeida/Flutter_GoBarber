@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_gobarber/app/external/repositories/auth_repository.dart';
 import 'package:mobx/mobx.dart';
 part 'auth_controller.g.dart';
@@ -22,8 +21,8 @@ abstract class _AuthControllerBase with Store {
   }
 
   @action
-  Future<void> register(String email, String password) async {
-    await _authRepository.register(email, password);
+  Future<void> register(String name, String email, String password) async {
+    await _authRepository.register(name, email, password);
     _isAuthenticated = _authRepository.isAuthenticated();
   }
 
@@ -41,5 +40,9 @@ abstract class _AuthControllerBase with Store {
     } catch (error) {
       print('logout error no CONTROLLER: $error');
     }
+  }
+
+  Future<String> get userFirstName async {
+    return await _authRepository.getUserFirstName();
   }
 }
