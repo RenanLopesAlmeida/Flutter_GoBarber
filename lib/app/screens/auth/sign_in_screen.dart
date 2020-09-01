@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gobarber/app/controllers/auth/auth_controller.dart';
 import 'package:flutter_gobarber/app/core/consts/app_colors_const.dart';
+import 'package:flutter_gobarber/app/screens/home/home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   static final routeName = '/signIn';
@@ -38,10 +39,16 @@ class _SignInScreenState extends State<SignInScreen> {
   void _handleSubmit() {
     _formKey.currentState.save();
 
-    _authController.login(
-      _authData['email'],
-      _authData['password'],
-    );
+    try {
+      _authController.login(
+        _authData['email'],
+        _authData['password'],
+      );
+
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    } catch (error) {
+      print('Could not login. ERROR: $error');
+    }
   }
 
   @override
@@ -165,7 +172,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   color: CustomColors.white,
                 )),
             onPressed: () {
-              print(_authController.isAuthenticated);
+              //a
             },
           )
         ],

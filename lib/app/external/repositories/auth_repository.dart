@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepository {
@@ -47,6 +49,15 @@ class AuthRepository {
   }
 
   bool isAuthenticated() {
-    return _auth.currentUser != null;
+    return (_auth.currentUser != null);
+  }
+
+  Future<void> logout() async {
+    try {
+      await _auth.signOut();
+      print('Logout succesfully!');
+    } catch (error) {
+      print('Could not logged out: $error');
+    }
   }
 }

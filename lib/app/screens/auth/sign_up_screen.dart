@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gobarber/app/controllers/auth/auth_controller.dart';
 import 'package:flutter_gobarber/app/core/consts/app_colors_const.dart';
+import 'package:flutter_gobarber/app/screens/home/home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   static final routeName = '/signUp';
@@ -38,10 +39,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _handleSubmit() {
     _formKey.currentState.save();
 
-    _authController.register(
-      _authData['email'],
-      _authData['password'],
-    );
+    try {
+      _authController.register(
+        _authData['email'],
+        _authData['password'],
+      );
+
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    } catch (error) {
+      print('Could not register. ERROR: $error');
+    }
   }
 
   @override

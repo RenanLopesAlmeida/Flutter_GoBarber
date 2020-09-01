@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gobarber/app/controllers/auth/auth_controller.dart';
 import 'package:flutter_gobarber/app/core/consts/app_colors_const.dart';
 import 'package:flutter_gobarber/app/screens/home/widgets/barber_tile.dart';
 import 'package:flutter_gobarber/app/shared/widgets/custom_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   static final String routeName = '/home';
+  final _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +16,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: 102,
-              color: CustomColors.backgroundDark,
-              child: CustomAppbar(),
-            ),
+            CustomAppbar(context: context, homeAppBar: true),
             Container(
               margin: const EdgeInsets.all(24),
               child: Text('Barbers',
