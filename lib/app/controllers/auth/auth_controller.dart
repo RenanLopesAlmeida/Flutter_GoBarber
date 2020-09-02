@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_gobarber/app/external/interfaces/auth_interface.dart';
 import 'package:flutter_gobarber/app/external/repositories/auth_repository.dart';
 import 'package:mobx/mobx.dart';
 part 'auth_controller.g.dart';
@@ -7,7 +8,7 @@ part 'auth_controller.g.dart';
 class AuthController = _AuthControllerBase with _$AuthController;
 
 abstract class _AuthControllerBase with Store {
-  final _authRepository = AuthRepository();
+  AuthInterface _authRepository = AuthRepository();
 
   @observable
   String _userCredential;

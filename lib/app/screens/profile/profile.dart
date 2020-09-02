@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gobarber/app/controllers/auth/auth_controller.dart';
+import 'package:flutter_gobarber/app/controllers/barbers/barber_controller.dart';
 import 'package:flutter_gobarber/app/core/consts/app_colors_const.dart';
 import 'package:flutter_gobarber/app/shared/widgets/custom_appbar.dart';
 
 class ProfileScreen extends StatelessWidget {
   static final String routeName = '/profile';
+
   final _authController = AuthController();
+  final _barberController = BarberController();
 
 //nao funcionar por causa que o default app bar não tem mais contexto
   void _logout(BuildContext context) async {
@@ -21,6 +24,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _barberController.barbers;
+
     return Scaffold(
       backgroundColor: CustomColors.backgroundDarkLight,
       body: SafeArea(

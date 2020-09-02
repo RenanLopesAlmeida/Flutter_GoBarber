@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gobarber/app/core/consts/app_colors_const.dart';
+import 'package:flutter_gobarber/app/shared/models/barbers.dart';
 
 class BarberTile extends StatelessWidget {
+  final BarbersModel barber;
+
+  BarberTile({this.barber});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +30,7 @@ class BarberTile extends StatelessWidget {
               ),
             ),
             title: Text(
-              'Diego Fernandes',
+              barber.name,
               style: TextStyle(
                   color: CustomColors.white,
                   fontSize: 18,
@@ -61,7 +66,7 @@ class BarberTile extends StatelessWidget {
                       ),
                       SizedBox(width: 11.75),
                       Text(
-                        '08 AM to 06 PM',
+                        '${barber.startHour} to ${barber.endHour}',
                         style: TextStyle(
                           color: CustomColors.lightGrey,
                         ),
